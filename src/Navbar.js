@@ -6,15 +6,18 @@ import { useState } from 'react';
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
-
+//     const toggleLinks = () => {
+//     setShowNav(!showNav);
+//   };
     return (
         <nav>
-            <button onClick='' className='menu'>
+            <button onClick={() => { setShowNav(!showNav)}} className='menu'>
                 <FaBars/>
             </button>
             <div className="brand">
                 <h3>PAINT</h3>
             </div>
+            {showNav && 
             <div className='links-container'>
                 <ul className="nav-links">
                     {Links.map((item) => {
@@ -26,6 +29,7 @@ export default function Navbar() {
                     })}
                 </ul>
             </div>
+            }
             <div className="cart">
                 <FiShoppingCart/>
             </div>
